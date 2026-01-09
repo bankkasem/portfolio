@@ -1,7 +1,11 @@
+import { useTranslations } from "next-intl";
+
 const isAvailableForHire =
   process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section
       id="home"
@@ -19,7 +23,7 @@ export default function Hero() {
           <div className="animate-fade-in-up mb-6">
             <span className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium rounded-full border border-white/20">
               <span className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
-              Available for freelance work
+              {t("available")}
             </span>
           </div>
         )}
@@ -28,9 +32,9 @@ export default function Hero() {
           className="animate-fade-in-up text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           style={{ animationDelay: "0.1s" }}
         >
-          Hi, I'm{" "}
+          {t("greeting")}{" "}
           <span className="relative">
-            <span className="text-accent-light">Kasemsarn</span>
+            <span className="text-accent-light">{t("name")}</span>
             <svg
               className="absolute -bottom-2 left-0 w-full"
               viewBox="0 0 200 10"
@@ -51,18 +55,22 @@ export default function Hero() {
           className="animate-fade-in-up text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto"
           style={{ animationDelay: "0.2s" }}
         >
-          Full-Stack Developer crafting{" "}
-          <span className="text-accent-light font-semibold">beautiful</span> and{" "}
-          <span className="text-accent-light font-semibold">scalable</span> web
-          applications
+          {t("rolePrefix")}{" "}
+          <span className="text-accent-light font-semibold">
+            {t("beautiful")}
+          </span>{" "}
+          {t("and")}{" "}
+          <span className="text-accent-light font-semibold">
+            {t("scalable")}
+          </span>{" "}
+          {t("roleSuffix")}
         </p>
 
         <p
           className="animate-fade-in-up text-white/60 mb-12 max-w-xl mx-auto"
           style={{ animationDelay: "0.3s" }}
         >
-          Passionate about building modern solutions with cutting-edge
-          technologies. Let's turn your ideas into reality.
+          {t("description")}
         </p>
 
         <div
@@ -73,7 +81,7 @@ export default function Hero() {
             href="#projects"
             className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-accent-light hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
-            View My Work
+            {t("viewWork")}
             <svg
               className="w-5 h-5 group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -93,7 +101,7 @@ export default function Hero() {
             href="#contact"
             className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
           >
-            Get In Touch
+            {t("getInTouch")}
           </a>
         </div>
       </div>
@@ -107,7 +115,7 @@ export default function Hero() {
           href="#about"
           className="flex flex-col items-center text-white/60 hover:text-white transition-colors"
         >
-          <span className="text-sm mb-2">Scroll down</span>
+          <span className="text-sm mb-2">{t("scrollDown")}</span>
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-2">
             <div className="w-1.5 h-3 bg-white/60 rounded-full animate-bounce" />
           </div>

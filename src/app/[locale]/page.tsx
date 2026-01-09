@@ -8,16 +8,14 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen">
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
       <Footer />
-    </>
+    </main>
   );
 }

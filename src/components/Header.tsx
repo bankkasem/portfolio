@@ -1,21 +1,25 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const isAvailableForHire =
   process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";
 
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
-
 export default function Header() {
+  const t = useTranslations("Header");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Need to define navLinks inside component to use translation hook
+  const navLinks = [
+    { name: t("home"), href: "#home" },
+    { name: t("about"), href: "#about" },
+    { name: t("skills"), href: "#skills" },
+    { name: t("projects"), href: "#projects" },
+    { name: t("contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,49 +65,55 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* CTA Button */}
-          {isAvailableForHire && (
-            <a
-              href="#contact"
-              className="hidden md:inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-all hover:scale-105 hover:shadow-lg"
-            >
-              Hire Me
-            </a>
-          )}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+            {/* CTA Button */}
+            {isAvailableForHire && (
+              <a
+                href="#contact"
+                className="hidden md:inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-all hover:scale-105 hover:shadow-lg"
+              >
+                {t("hireMe")}
+              </a>
+            )}
+          </div>
+
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`p-2 ${isScrolled ? "text-foreground" : "text-white"}`}
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                {isMobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -127,12 +137,13 @@ export default function Header() {
               ))}
               {isAvailableForHire && (
                 <li>
+                  {/* biome-ignore lint/a11y/useValidAnchor: interaction required for mobile menu */}
                   <a
                     href="#contact"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full"
                   >
-                    Hire Me
+                    {t("hireMe")}
                   </a>
                 </li>
               )}

@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 
 interface Project {
@@ -9,51 +11,47 @@ interface Project {
   featured?: boolean;
 }
 
-const projects: Project[] = [
-  {
-    title: "Company Home Page",
-    description:
-      "Official corporate website featuring a modern design, service showcases, and seamless user experience.",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
-    liveUrl: "https://weplus.life",
-    featured: true,
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured e-commerce solution with cart management, payment processing, and real-time inventory tracking.",
-    tags: ["Next.js", "TypeScript", "Saleor"],
-    liveUrl: "https://shop.weplus.life",
-    featured: true,
-  },
-  {
-    title: "Token-Based Auth System",
-    description:
-      "A secure authentication system featuring JWT-based authorization, session management, and role-based access control.",
-    tags: ["Node.js", "JWT", "Redis"],
-  },
-  {
-    title: "Car Dealer Support System",
-    description: "A comprehensive car stock management and booking system",
-    tags: ["React.js", "Express.js"],
-  },
-];
-
 export default function Projects() {
+  const t = useTranslations("Projects");
+
+  const projects: Project[] = [
+    {
+      title: t("items.companyHome.title"),
+      description: t("items.companyHome.description"),
+      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      liveUrl: "https://weplus.life",
+      featured: true,
+    },
+    {
+      title: t("items.ecommerce.title"),
+      description: t("items.ecommerce.description"),
+      tags: ["Next.js", "TypeScript", "Saleor"],
+      liveUrl: "https://shop.weplus.life",
+      featured: true,
+    },
+    {
+      title: t("items.authSystem.title"),
+      description: t("items.authSystem.description"),
+      tags: ["Node.js", "JWT", "Redis"],
+    },
+    {
+      title: t("items.carDealer.title"),
+      description: t("items.carDealer.description"),
+      tags: ["React", "REST APIs"],
+    },
+  ];
+
   return (
     <section id="projects" className="section-padding bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-            My Work
+            {t("badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
+            {t("title")}
           </h2>
-          <p className="text-muted max-w-2xl mx-auto">
-            A selection of projects I've worked on, showcasing my skills and
-            expertise
-          </p>
+          <p className="text-muted max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -75,7 +73,7 @@ export default function Projects() {
 
                 {project.featured && (
                   <div className="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-medium">
-                    Featured
+                    {t("featured")}
                   </div>
                 )}
 
@@ -87,7 +85,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform"
                     >
-                      <span className="sr-only">View live project</span>
+                      <span className="sr-only">{t("viewLive")}</span>
                       <svg
                         className="w-5 h-5"
                         fill="none"
@@ -111,7 +109,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform"
                     >
-                      <span className="sr-only">View source code</span>
+                      <span className="sr-only">{t("viewSource")}</span>
                       <svg
                         className="w-5 h-5"
                         fill="currentColor"
@@ -154,7 +152,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-background font-semibold rounded-full hover:bg-accent transition-colors"
           >
-            View All Projects
+            {t("viewAll")}
             <svg
               className="w-5 h-5"
               fill="none"

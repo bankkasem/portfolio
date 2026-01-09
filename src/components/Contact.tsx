@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 
 export default function Contact() {
+  const t = useTranslations("Contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,26 +38,20 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-            Contact
+            {t("badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Let's work together
+            {t("title")}
           </h2>
-          <p className="text-muted max-w-2xl mx-auto">
-            Have a project in mind? Let's discuss how we can bring your ideas to
-            life
-          </p>
+          <p className="text-muted max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              Get in touch
+              {t("getInTouch")}
             </h3>
-            <p className="text-muted mb-8">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities.
-            </p>
+            <p className="text-muted mb-8">{t("openToDiscuss")}</p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
@@ -75,7 +71,9 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Email</h4>
+                  <h4 className="font-semibold text-foreground">
+                    {t("emailLabel")}
+                  </h4>
                   <a
                     href={`mailto:${email}`}
                     className="text-muted hover:text-accent"
@@ -108,13 +106,17 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground">Location</h4>
-                  <p className="text-muted">Bangkok, Thailand</p>
+                  <h4 className="font-semibold text-foreground">
+                    {t("locationLabel")}
+                  </h4>
+                  <p className="text-muted">{t("locationValue")}</p>
                 </div>
               </div>
             </div>
             <div className="mt-10">
-              <h4 className="font-semibold text-foreground mb-4">Follow me</h4>
+              <h4 className="font-semibold text-foreground mb-4">
+                {t("followMe")}
+              </h4>
               <div className="flex gap-4">
                 <a
                   href={githubUrl}
@@ -144,7 +146,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Your Name
+                    {t("form.name")}
                   </label>
                   <input
                     type="text"
@@ -154,7 +156,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-background border border-foreground/10 text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="John Doe"
+                    placeholder={t("form.namePlaceholder")}
                   />
                 </div>
                 <div>
@@ -162,7 +164,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Your Email
+                    {t("form.email")}
                   </label>
                   <input
                     type="email"
@@ -172,7 +174,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-background border border-foreground/10 text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="john@example.com"
+                    placeholder={t("form.emailPlaceholder")}
                   />
                 </div>
               </div>
@@ -181,7 +183,7 @@ export default function Contact() {
                   htmlFor="subject"
                   className="block text-sm font-medium text-foreground mb-2"
                 >
-                  Subject
+                  {t("form.subject")}
                 </label>
                 <input
                   type="text"
@@ -191,7 +193,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-xl bg-background border border-foreground/10 text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-                  placeholder="Project Inquiry"
+                  placeholder={t("form.subjectPlaceholder")}
                 />
               </div>
               <div>
@@ -199,7 +201,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-medium text-foreground mb-2"
                 >
-                  Message
+                  {t("form.message")}
                 </label>
                 <textarea
                   id="message"
@@ -209,14 +211,14 @@ export default function Contact() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 rounded-xl bg-background border border-foreground/10 text-foreground focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder={t("form.messagePlaceholder")}
                 />
               </div>
               <button
                 type="submit"
                 className="w-full py-4 bg-accent text-white font-semibold rounded-xl hover:bg-accent-dark transition-all hover:shadow-lg"
               >
-                Send Email
+                {t("form.submit")}
               </button>
             </form>
           </div>

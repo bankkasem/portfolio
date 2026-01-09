@@ -1,7 +1,10 @@
+import { useTranslations } from "next-intl";
+
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -13,19 +16,16 @@ export default function Footer() {
             <a href="#home" className="text-2xl font-bold">
               KP<span className="text-accent-light">.</span>
             </a>
-            <p className="mt-4 text-white/70 text-sm">
-              Full-Stack Developer crafting beautiful and scalable web
-              applications.
-            </p>
+            <p className="mt-4 text-white/70 text-sm">{t("role")}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">{t("quickLinks")}</h4>
             <ul className="space-y-2 text-white/70 text-sm">
               <li>
                 <a href="#about" className="hover:text-white transition-colors">
-                  About
+                  {t("about") || "About"}
                 </a>
               </li>
               <li>
@@ -33,7 +33,7 @@ export default function Footer() {
                   href="#skills"
                   className="hover:text-white transition-colors"
                 >
-                  Skills
+                  {t("skills") || "Skills"}
                 </a>
               </li>
               <li>
@@ -41,7 +41,7 @@ export default function Footer() {
                   href="#projects"
                   className="hover:text-white transition-colors"
                 >
-                  Projects
+                  {t("projects") || "Projects"}
                 </a>
               </li>
               <li>
@@ -49,7 +49,7 @@ export default function Footer() {
                   href="#contact"
                   className="hover:text-white transition-colors"
                 >
-                  Contact
+                  {t("contact") || "Contact"}
                 </a>
               </li>
             </ul>
@@ -57,17 +57,17 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
+            <h4 className="font-semibold mb-4">{t("contact")}</h4>
             <ul className="space-y-2 text-white/70 text-sm">
               <li>{email}</li>
-              <li>Bangkok, Thailand</li>
+              <li>{t("locationValue")}</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm">
-            © {currentYear} Kasemsarn Purisarn. All rights reserved.
+            {t("copyright", { year: currentYear })}
           </p>
           <div className="flex gap-4">
             <a

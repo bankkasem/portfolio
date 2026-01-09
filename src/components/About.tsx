@@ -1,44 +1,43 @@
-const stats = [
-  { number: "7+", label: "Years Experience" },
-  // { number: "10+", label: "Projects Completed" },
-];
+import { useTranslations } from "next-intl";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 
 export default function About() {
+  const t = useTranslations("About");
+
+  const stats = [
+    { number: "7+", label: t("yearsExperience") },
+    // { number: "10+", label: t("projectsCompleted") },
+  ];
+
   return (
     <section id="about" className="section-padding bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-            About Me
+            {t("badge")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Get to know me better
+            {t("title")}
           </h2>
-          <p className="text-muted max-w-2xl mx-auto">
-            A passionate developer who loves creating amazing digital
-            experiences
-          </p>
+          <p className="text-muted max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="relative w-full max-w-md mx-auto">
-              <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl blur-xl" />
+              <div className="absolute -inset-4 bg-linear-to-r from-accent/20 to-primary/20 rounded-2xl blur-xl" />
 
               <div className="relative glass-card rounded-2xl p-8 text-center">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white text-4xl font-bold">
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-linear-to-br from-accent to-primary flex items-center justify-center text-white text-4xl font-bold">
                   KP
                 </div>
 
                 <h3 className="text-xl font-bold text-foreground mb-2">
-                  Kasemsarn Purisarn
+                  {t("name")}
                 </h3>
-                <p className="text-accent font-medium mb-4">
-                  Full-Stack Developer
-                </p>
+                <p className="text-accent font-medium mb-4">{t("role")}</p>
 
                 <div className="flex justify-center gap-4">
                   <a
@@ -84,23 +83,13 @@ export default function About() {
 
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              Turning ideas into{" "}
-              <span className="text-gradient">digital reality</span>
+              {t("heading")}{" "}
+              <span className="text-gradient">{t("headingHighlight")}</span>
             </h3>
 
             <div className="space-y-4 text-muted leading-relaxed mb-8">
-              <p>
-                I'm a Full-Stack Developer with a passion for building
-                exceptional digital experiences. With expertise in both frontend
-                and backend technologies, I create seamless, scalable
-                applications that make a difference.
-              </p>
-              <p>
-                My journey in tech has led me to work on diverse projects, from
-                modern web applications to complex enterprise solutions. I
-                believe in writing clean, maintainable code and staying
-                up-to-date with the latest technologies.
-              </p>
+              <p>{t("bio1")}</p>
+              <p>{t("bio2")}</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
