@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+const isAvailableForHire =
+  process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";
+
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -59,12 +62,14 @@ export default function Header() {
           </ul>
 
           {/* CTA Button */}
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-all hover:scale-105 hover:shadow-lg"
-          >
-            Hire Me
-          </a>
+          {isAvailableForHire && (
+            <a
+              href="#contact"
+              className="hidden md:inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-all hover:scale-105 hover:shadow-lg"
+            >
+              Hire Me
+            </a>
+          )}
 
           {/* Mobile Menu Button */}
           <button
@@ -120,15 +125,17 @@ export default function Header() {
                   </a>
                 </li>
               ))}
-              <li>
-                <a
-                  href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full"
-                >
-                  Hire Me
-                </a>
-              </li>
+              {isAvailableForHire && (
+                <li>
+                  <a
+                    href="#contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="inline-flex items-center px-5 py-2.5 bg-accent text-white font-medium rounded-full"
+                  >
+                    Hire Me
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         )}
