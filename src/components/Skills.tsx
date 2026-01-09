@@ -17,14 +17,7 @@ const skillCategories = [
         />
       </svg>
     ),
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vue.js",
-      "HTML/CSS",
-    ],
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
   },
   {
     title: "Backend",
@@ -44,14 +37,7 @@ const skillCategories = [
         />
       </svg>
     ),
-    skills: [
-      "Node.js",
-      "Python",
-      "PostgreSQL",
-      "MongoDB",
-      "REST APIs",
-      "GraphQL",
-    ],
+    skills: ["Node.js", "MySQL", "REST APIs", "GraphQL"],
   },
   {
     title: "DevOps & Tools",
