@@ -21,8 +21,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your message! I will get back to you soon.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    const mailtoSubject = encodeURIComponent(formData.subject);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
+    );
+    const mailtoLink = `mailto:${email}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -210,7 +216,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full py-4 bg-accent text-white font-semibold rounded-xl hover:bg-accent-dark transition-all hover:shadow-lg"
               >
-                Send Message
+                Send Email
               </button>
             </form>
           </div>
