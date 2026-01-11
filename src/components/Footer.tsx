@@ -60,15 +60,13 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          {isAvailableForHire && (
-            <div>
-              <h4 className="font-semibold mb-4">{t("contact")}</h4>
-              <ul className="space-y-2 text-white/70 text-sm">
-                <li>{email}</li>
-                <li>{t("locationValue")}</li>
-              </ul>
-            </div>
-          )}
+          <div>
+            <h4 className="font-semibold mb-4">{t("contact")}</h4>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li>{email}</li>
+              <li>{t("locationValue")}</li>
+            </ul>
+          </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
