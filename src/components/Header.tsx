@@ -18,7 +18,7 @@ export default function Header() {
     { name: t("about"), href: "#about" },
     { name: t("skills"), href: "#skills" },
     { name: t("projects"), href: "#projects" },
-    { name: t("contact"), href: "#contact" },
+    ...(isAvailableForHire ? [{ name: t("contact"), href: "#contact" }] : []),
   ];
 
   useEffect(() => {
