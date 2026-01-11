@@ -45,17 +45,28 @@ Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 ```
 src/
 ├── app/
-│   ├── globals.css    # Design system & animations
-│   ├── layout.tsx     # Root layout + SEO
-│   └── page.tsx       # Main page
-└── components/
-    ├── Header.tsx     # Navigation
-    ├── Hero.tsx       # Hero section
-    ├── About.tsx      # About + stats
-    ├── Skills.tsx     # Tech skills
-    ├── Projects.tsx   # Portfolio
-    ├── Contact.tsx    # Contact form
-    └── Footer.tsx     # Footer
+│   ├── [locale]/          # Dynamic locale routing
+│   │   ├── layout.tsx     # Root layout + SEO
+│   │   └── page.tsx       # Main page
+│   ├── globals.css        # Design system & animations
+│   └── favicon.ico
+├── components/
+│   ├── Header.tsx         # Navigation
+│   ├── Hero.tsx           # Hero section
+│   ├── About.tsx          # About + stats
+│   ├── Skills.tsx         # Tech skills
+│   ├── Projects.tsx       # Portfolio
+│   ├── Contact.tsx        # Contact form
+│   ├── Footer.tsx         # Footer
+│   ├── LanguageSwitcher.tsx  # i18n language toggle
+│   └── index.ts           # Component exports
+├── i18n/
+│   ├── request.ts         # i18n request config
+│   └── routing.ts         # Locale routing config
+└── proxy.ts               # Proxy utilities
+messages/
+├── en.json                # English translations
+└── th.json                # Thai translations
 ```
 
 ## 🤖 Built with AI
