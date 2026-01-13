@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KP Portfolio",
+  title: "Portfolio - Kasemsarn Purisarn",
   description:
     "Full-Stack Developer crafting beautiful and scalable web applications. Passionate about building modern solutions with cutting-edge technologies.",
   keywords: [
