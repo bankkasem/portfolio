@@ -6,7 +6,6 @@ trigger: always_on
 
 ## Version Bumping Before Push to Main
 - **Always bump the version** in package.json before pushing to the `main` branch.
-- The `main` branch is linked to Vercel deployment, so version bumping ensures proper versioning on production.
 
 ### Version Bump Process
 1. Before pushing to `main`, update the `version` field in package.json following [Semantic Versioning](https://semver.org/):
