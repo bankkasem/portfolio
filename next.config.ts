@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
   // Experimental optimizations
   experimental: {
     optimizeCss: true,
+    // Optimize barrel file imports for better tree-shaking
+    optimizePackageImports: ["@/components"],
   },
 };
 
