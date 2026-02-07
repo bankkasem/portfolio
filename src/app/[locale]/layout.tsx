@@ -48,10 +48,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   // Parallelize independent async operations to eliminate waterfall
-  const [{ locale }, messages] = await Promise.all([
-    params,
-    getMessages(),
-  ]);
+  const [{ locale }, messages] = await Promise.all([params, getMessages()]);
 
   // Ensure that the incoming `locale` is valid
   // biome-ignore lint/suspicious/noExplicitAny: library type mismatch

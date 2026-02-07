@@ -25,6 +25,9 @@
         "useAnchorContent": "warn",
         "useValidAnchor": "warn",
         "noSvgWithoutTitle": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
       }
     },
     "domains": {
