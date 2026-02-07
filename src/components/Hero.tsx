@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { useTranslations } from "next-intl";
 
 const isAvailableForHire =
   process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";
 
-export default function Hero() {
+const Hero = memo(function Hero() {
   const t = useTranslations("Hero");
 
   return (
@@ -125,4 +126,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+});
+
+export default Hero;

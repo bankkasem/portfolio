@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { useTranslations } from "next-intl";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 
-export default function About() {
+const About = memo(function About() {
   const t = useTranslations("About");
 
   const stats = [
@@ -112,4 +113,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+});
+
+export default About;

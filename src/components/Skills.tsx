@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { useTranslations } from "next-intl";
 
-export default function Skills() {
+const Skills = memo(function Skills() {
   const t = useTranslations("Skills");
 
   const skillCategories = [
@@ -130,4 +131,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+});
+
+export default Skills;

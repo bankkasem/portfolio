@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useTranslations } from "next-intl";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
@@ -5,7 +6,7 @@ const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 const isAvailableForHire =
   process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";
 
-export default function Footer() {
+const Footer = memo(function Footer() {
   const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
@@ -95,4 +96,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;

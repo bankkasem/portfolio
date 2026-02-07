@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useTranslations } from "next-intl";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
@@ -11,10 +12,17 @@ interface Project {
   featured?: boolean;
 }
 
-export default function Projects() {
+const Projects = memo(function Projects() {
   const t = useTranslations("Projects");
 
   const projects: Project[] = [
+    {
+      title: t("items.healthLog.title"),
+      description: t("items.healthLog.description"),
+      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      liveUrl: "https://health.bankkasem.com",
+      featured: true,
+    },
     {
       title: t("items.companyHome.title"),
       description: t("items.companyHome.description"),
@@ -172,4 +180,6 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+});
+
+export default Projects;
