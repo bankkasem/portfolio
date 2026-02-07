@@ -1,5 +1,5 @@
-import { memo } from "react";
 import { useTranslations } from "next-intl";
+import { memo } from "react";
 
 const isAvailableForHire =
   process.env.NEXT_PUBLIC_AVAILABLE_FOR_HIRE === "true";

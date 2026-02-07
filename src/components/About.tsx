@@ -1,5 +1,5 @@
-import { memo } from "react";
 import { useTranslations } from "next-intl";
+import { memo } from "react";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";

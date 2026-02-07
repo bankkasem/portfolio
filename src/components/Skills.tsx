@@ -1,5 +1,5 @@
-import { memo } from "react";
 import { useTranslations } from "next-intl";
+import { memo } from "react";
 
 const Skills = memo(function Skills() {
   const t = useTranslations("Skills");
