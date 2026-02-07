@@ -47,17 +47,17 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  // Parallelize independent async operations to eliminate waterfall
+  const [{ locale }, messages] = await Promise.all([
+    params,
+    getMessages(),
+  ]);
 
   // Ensure that the incoming `locale` is valid
   // biome-ignore lint/suspicious/noExplicitAny: library type mismatch
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
-
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
 
   return (
     <html lang={locale}>
