@@ -54,6 +54,10 @@
     "viewAll": "View All Projects",
     "featured": "Featured",
     "items": {
+      "healthLog": {
+        "title": "Health Log",
+        "description": "A personal health monitoring platform for recording and tracking body metrics including body fat, muscle mass, BMR, and BMI with historical data analysis."
+      },
       "companyHome": {
         "title": "Company Home Page",
         "description": "Official corporate website featuring a modern design, service showcases, and seamless user experience."
