@@ -58,21 +58,13 @@
         "title": "Health Log",
         "description": "A personal health monitoring platform for recording and tracking body metrics including body fat, muscle mass, BMR, and BMI with historical data analysis."
       },
-      "companyHome": {
-        "title": "Company Home Page",
-        "description": "Official corporate website featuring a modern design, service showcases, and seamless user experience."
+      "webBlog": {
+        "title": "Content Blog Platform",
+        "description": "A blog platform that uses Strapi CMS to manage and display content."
       },
       "ecommerce": {
         "title": "E-Commerce Platform",
-        "description": "A full-featured e-commerce solution with cart management, payment processing, and real-time inventory tracking."
-      },
-      "authSystem": {
-        "title": "Token-Based Auth System",
-        "description": "A secure authentication system featuring JWT-based authorization, session management, and role-based access control."
-      },
-      "carDealer": {
-        "title": "Car Dealer Support System",
-        "description": "A comprehensive car stock management and booking system"
+        "description": "An e-commerce platform powered by Saleor for online shopping and product management."
       }
     }
   },

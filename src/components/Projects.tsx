@@ -19,33 +19,23 @@ const Projects = memo(function Projects() {
     {
       title: t("items.healthLog.title"),
       description: t("items.healthLog.description"),
-      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vibe Coding"],
       liveUrl: "https://health.bankkasem.com",
       featured: true,
     },
     {
-      title: t("items.companyHome.title"),
-      description: t("items.companyHome.description"),
-      tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+      title: t("items.webBlog.title"),
+      description: t("items.webBlog.description"),
+      tags: ["Next.js", "Strapi CMS", "TypeScript", "Tailwind CSS"],
       liveUrl: "https://weplus.life",
-      featured: true,
+      featured: false,
     },
     {
       title: t("items.ecommerce.title"),
       description: t("items.ecommerce.description"),
-      tags: ["Next.js", "TypeScript", "Saleor"],
-      liveUrl: "https://shop.weplus.life",
-      featured: true,
-    },
-    {
-      title: t("items.authSystem.title"),
-      description: t("items.authSystem.description"),
-      tags: ["Node.js", "JWT", "Redis"],
-    },
-    {
-      title: t("items.carDealer.title"),
-      description: t("items.carDealer.description"),
-      tags: ["React", "REST APIs"],
+      tags: ["Next.js", "Saleor", "TypeScript", "E-Commerce"],
+      liveUrl: "https://shop.weplus.life/",
+      featured: false,
     },
   ];
 
@@ -66,11 +56,9 @@ const Projects = memo(function Projects() {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 ${
-                project.featured ? "md:col-span-1" : ""
-              }`}
+              className="group glass-card rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500"
             >
-              <div className="relative h-48 md:h-56 bg-gradient-to-br from-primary to-accent overflow-hidden">
+              <div className="relative h-48 md:h-56 bg-linear-to-br from-primary to-accent overflow-hidden">
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_25%,rgba(255,255,255,0.1)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.1)_75%)] bg-[length:20px_20px]" />
                 </div>
