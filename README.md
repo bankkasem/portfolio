@@ -6,6 +6,7 @@ A portfolio website built with Next.js 16, TypeScript, and Tailwind CSS 4.
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwind-css)
 ![Bun](https://img.shields.io/badge/Bun-Package_Manager-f9f1e1?style=flat-square&logo=bun)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ## ✨ Features
 
@@ -72,6 +73,10 @@ messages/
 ## 🤖 Built with AI
 
 This project was developed in collaboration with **AI** (Antigravity by Google DeepMind), demonstrating the power of human-AI pair programming for rapid development of modern web applications.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
