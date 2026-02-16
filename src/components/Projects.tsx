@@ -17,6 +17,19 @@ const Projects = memo(function Projects() {
 
   const projects: Project[] = [
     {
+      title: t("items.authHub.title"),
+      description: t("items.authHub.description"),
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "NextAuth",
+        "Authentication",
+        "Vibe Coding",
+      ],
+      liveUrl: "https://auth.bankkasem.com",
+      featured: true,
+    },
+    {
       title: t("items.healthLog.title"),
       description: t("items.healthLog.description"),
       tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vibe Coding"],
