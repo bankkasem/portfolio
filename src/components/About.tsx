@@ -1,16 +1,23 @@
 import { useTranslations } from "next-intl";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 const email = process.env.NEXT_PUBLIC_EMAIL || "contact@example.com";
 
+// Hoist static stats data outside component
+const STATS_DATA = [
+  { number: "7+", labelKey: "yearsExperience" },
+  // { number: "10+", labelKey: "projectsCompleted" },
+] as const;
+
 const About = memo(function About() {
   const t = useTranslations("About");
 
-  const stats = [
-    { number: "7+", label: t("yearsExperience") },
-    // { number: "10+", label: t("projectsCompleted") },
-  ];
+  // Memoize stats array to prevent recreation
+  const stats = useMemo(
+    () => STATS_DATA.map((stat) => ({ number: stat.number, label: t(stat.labelKey) })),
+    [t],
+  );
 
   return (
     <section id="about" className="section-padding bg-background">
