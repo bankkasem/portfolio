@@ -93,7 +93,7 @@ Components are React.memo wrapped for performance where appropriate.
 
 ### Pre-build Hooks
 
-The `prebuild` script automatically runs formatting and linting before builds to ensure code quality.
+The `prebuild` script runs `biome check --write .` before builds to automatically format code and check for linting issues.
 
 ## Environment Variables
 

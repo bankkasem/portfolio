@@ -70,14 +70,10 @@ messages/
 └── th.json                # Thai translations
 ```
 
-## 🤖 Built with AI
+## 👨‍💻 For Developers
 
-This project was developed in collaboration with **AI** (Antigravity by Google DeepMind), demonstrating the power of human-AI pair programming for rapid development of modern web applications.
+For detailed development guidelines, architecture documentation, and AI assistant instructions, see [CLAUDE.md](CLAUDE.md).
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Made with ❤️ by [@bankkasem](https://github.com/bankkasem)
