@@ -15,7 +15,11 @@ const About = memo(function About() {
 
   // Memoize stats array to prevent recreation
   const stats = useMemo(
-    () => STATS_DATA.map((stat) => ({ number: stat.number, label: t(stat.labelKey) })),
+    () =>
+      STATS_DATA.map((stat) => ({
+        number: stat.number,
+        label: t(stat.labelKey),
+      })),
     [t],
   );
 

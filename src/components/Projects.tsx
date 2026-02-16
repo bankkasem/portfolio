@@ -16,7 +16,13 @@ interface Project {
 const PROJECTS_DATA = [
   {
     key: "authHub",
-    tags: ["Next.js", "TypeScript", "NextAuth", "Authentication", "Vibe Coding"],
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "NextAuth",
+      "Authentication",
+      "Vibe Coding",
+    ],
     liveUrl: "https://auth.bankkasem.com",
     featured: true,
   },
