@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "bun run format && bun run lint",
+    "prebuild": "biome check --write .",
     "build": "next build",
     "start": "next start",
     "lint": "biome check",

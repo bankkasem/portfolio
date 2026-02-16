@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const isAvailableForHire =
@@ -12,14 +12,17 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Need to define navLinks inside component to use translation hook
-  const navLinks = [
-    { name: t("home"), href: "#home" },
-    { name: t("about"), href: "#about" },
-    { name: t("skills"), href: "#skills" },
-    { name: t("projects"), href: "#projects" },
-    ...(isAvailableForHire ? [{ name: t("contact"), href: "#contact" }] : []),
-  ];
+  // Memoize navLinks to prevent recreation on every render
+  const navLinks = useMemo(
+    () => [
+      { name: t("home"), href: "#home" },
+      { name: t("about"), href: "#about" },
+      { name: t("skills"), href: "#skills" },
+      { name: t("projects"), href: "#projects" },
+      ...(isAvailableForHire ? [{ name: t("contact"), href: "#contact" }] : []),
+    ],
+    [t],
+  );
 
   useEffect(() => {
     const handleScroll = () => {

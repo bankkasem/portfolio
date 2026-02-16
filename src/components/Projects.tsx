@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com";
 
@@ -12,32 +12,55 @@ interface Project {
   featured?: boolean;
 }
 
+// Hoist static project data outside component to prevent recreation on every render
+const PROJECTS_DATA = [
+  {
+    key: "authHub",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "NextAuth",
+      "Authentication",
+      "Vibe Coding",
+    ],
+    liveUrl: "https://auth.bankkasem.com",
+    featured: true,
+  },
+  {
+    key: "healthLog",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vibe Coding"],
+    liveUrl: "https://health.bankkasem.com",
+    featured: true,
+  },
+  {
+    key: "webBlog",
+    tags: ["Next.js", "Strapi CMS", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://weplus.life",
+    featured: false,
+  },
+  {
+    key: "ecommerce",
+    tags: ["Next.js", "Saleor", "TypeScript", "E-Commerce"],
+    liveUrl: "https://shop.weplus.life/",
+    featured: false,
+  },
+] as const;
+
 const Projects = memo(function Projects() {
   const t = useTranslations("Projects");
 
-  const projects: Project[] = [
-    {
-      title: t("items.healthLog.title"),
-      description: t("items.healthLog.description"),
-      tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vibe Coding"],
-      liveUrl: "https://health.bankkasem.com",
-      featured: true,
-    },
-    {
-      title: t("items.webBlog.title"),
-      description: t("items.webBlog.description"),
-      tags: ["Next.js", "Strapi CMS", "TypeScript", "Tailwind CSS"],
-      liveUrl: "https://weplus.life",
-      featured: false,
-    },
-    {
-      title: t("items.ecommerce.title"),
-      description: t("items.ecommerce.description"),
-      tags: ["Next.js", "Saleor", "TypeScript", "E-Commerce"],
-      liveUrl: "https://shop.weplus.life/",
-      featured: false,
-    },
-  ];
+  // Memoize projects array to prevent recreation when translations don't change
+  const projects: Project[] = useMemo(
+    () =>
+      PROJECTS_DATA.map((project) => ({
+        title: t(`items.${project.key}.title`),
+        description: t(`items.${project.key}.description`),
+        tags: [...project.tags],
+        liveUrl: project.liveUrl,
+        featured: project.featured,
+      })),
+    [t],
+  );
 
   return (
     <section id="projects" className="section-padding bg-background">
