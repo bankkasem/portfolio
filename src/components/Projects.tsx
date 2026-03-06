@@ -27,12 +27,6 @@ const PROJECTS_DATA = [
     featured: true,
   },
   {
-    key: "healthLog",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vibe Coding"],
-    liveUrl: "https://health.bankkasem.com",
-    featured: true,
-  },
-  {
     key: "webBlog",
     tags: ["Next.js", "Strapi CMS", "TypeScript", "Tailwind CSS"],
     liveUrl: "https://weplus.life",

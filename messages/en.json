@@ -58,10 +58,6 @@
         "title": "Authentication Hub",
         "description": "Centralized authentication application with multi-type consent management, role-based access control, comprehensive admin capabilities, and seamless registration flow with auto sign-in. Supports subdomain cookie sharing for integration with other applications."
       },
-      "healthLog": {
-        "title": "Health Log",
-        "description": "A personal health monitoring platform for recording and tracking body metrics including body fat, muscle mass, BMR, and BMI with historical data analysis."
-      },
       "webBlog": {
         "title": "Content Blog Platform",
         "description": "A blog platform that uses Strapi CMS to manage and display content."
