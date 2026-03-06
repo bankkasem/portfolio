@@ -91,17 +91,15 @@ Components are React.memo wrapped for performance where appropriate.
   - `noUnknownAtRules`: off (for Tailwind CSS)
   - `noImportantStyles`: off (for utility-first CSS)
 
-### Pre-build Hooks
-
-The `prebuild` script runs `biome check --write .` before builds to automatically format code and check for linting issues.
-
 ## Environment Variables
 
 - `NEXT_PUBLIC_AVAILABLE_FOR_HIRE` - Controls Contact section visibility (set to "true" to show)
 
-## Next.js Configuration Notes
+## Additional Notes
+- **Package Manager:** bun (use `bun add` instead of `npm install`)
+- Do not commit code automatically without user request
+- Do not run lint or build frequently (only before committing)
 
-- Compression enabled for all responses
-- `X-Powered-By` header removed
-- Image formats: AVIF, WebP with optimized device sizes
-- The `withNextIntl()` wrapper is required for i18n functionality
+## Required Skills
+- git-commit
+- next-best-practices
